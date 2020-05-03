@@ -1,0 +1,10 @@
+
+//URI = scheme:[//authority]path[?query][#fragment]   '''https://en.wikipedia.org/wiki/URL'''
+program -> URI | END;
+URI -> scheme | authority | path | query | fragment ;
+scheme -> EMPTY | literal ":";
+authority -> "//" literal  (":"literal)? "@" "[" literal"]" (":"literal)? ;
+path -> EMPTY | ("/" (EMPTY|literal)?)* ;
+query -> "?" (LETTER | OTHER |DIGIT)*;
+fragment -> "#" (LETTER | OTHER | DIGIT)*;
+literal -> LETTER | DIGIT | PERIOD | PLUS | HYPHEN ;
